@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+namespace Challenges\Interface;
+
+
+
 //EASY
 //Added functionality needed -Upgradeable or Update.
 
@@ -108,17 +112,18 @@ class Speaker extends Device implements Upgradeable
 
 
 $androidPhone = new Phone('Android', 'Android Phone');
-$androidPhone = new BasicPhone('Android', 'Android Phone');
+$basicPhone = new BasicPhone('Basic phone');
 $speaker = new Speaker('Bluetooth speaker');
 
-$androidPhone->getName();
-$androidPhone->deviceStatus();
-$androidPhone->turnOn();
-$androidPhone->deviceStatus();
-$androidPhone->operate();
-$androidPhone->turnOff();
-$androidPhone->deviceStatus();
+// $androidPhone->getName();
+// $androidPhone->deviceStatus();
+// $androidPhone->turnOn();
+// $androidPhone->deviceStatus();
+// $androidPhone->operate();
+// $androidPhone->turnOff();
+// $androidPhone->deviceStatus();
 
+// $basicPhone->getName();
 
 
 
@@ -141,7 +146,7 @@ abstract class NotificationSystem
 
     public function trackSentNotifications(): void
     {
-        $this->notification_count += 1;
+        $this->notification_count++;
         echo "$this->notification_count notification" . $this->wordPluralizer() . " is sent. \n";
     }
     //DRY
@@ -151,7 +156,10 @@ abstract class NotificationSystem
     }
 }
 
-
+interface Persistable
+{
+    public function saveNotification(mixed $data): void;
+}
 class EmailNotificationSystem extends NotificationSystem
 {
     public function sendNotification(string $message): void
@@ -171,9 +179,31 @@ class SMSNotificationSystem extends NotificationSystem
     }
 }
 
+class PushNotifications extends NotificationSystem implements Persistable
+{
+
+
+    public function sendNotification(string $message): void
+    {
+        echo "Push notification is sent to user with message: $message \n";
+
+        $this->trackSentNotifications();
+        $this->saveNotification($message);
+    }
+    public function saveNotification(mixed $data): void
+    {
+        echo "Notification is saved to database with data: $data \n";
+    }
+}
+
+
+
 
 $email = new EmailNotificationSystem();
 $sms = new SMSNotificationSystem();
+$push = new PushNotifications();
+
+$push->sendNotification('you have got a new notification');
 
 
 // $email->sendNotification("You have got a new notification!\n");
@@ -192,7 +222,10 @@ $sms = new SMSNotificationSystem();
 
 
 //----------- EXPERT
-
+/**
+ * NOTE:
+ * By this point, you should have an understanding of Open-closed and SOLID principal in practice, even though this was more basic OOP oriented practices. Finish the following challenge without looking up for a solution first.
+ */
 
 abstract class Transportation
 {

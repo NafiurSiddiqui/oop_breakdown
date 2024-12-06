@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace Challenges\Abstraction;
+
+
 //EASY
 //one thing - protect the integrity of the encapsulation and NEVER directly modify the properties without getter/setter
 
@@ -64,7 +67,7 @@ class Speaker extends Device
     }
 }
 
-$phone = new Phone('Android phone');
+$phone = new Phone('Android Phone');
 $speaker = new Speaker('Bluetooth speaker');
 
 $phone->deviceStatus();

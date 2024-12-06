@@ -39,21 +39,18 @@ This way, you **extend the codebase without breaking it**.
 Instead of moving `sendNotification` and `trackSentNotifications` to interfaces:
 
 - Keep `NotificationSystem` as the base **abstract class**.
-- Use interfaces for **new notification types** or cross-cutting concerns like logging.
+- Use interfaces for adding new functionality without modifying the base class (SOLID).
+- Problem: The application requires a new feature for `NotificationSystem`, some of the notification requires persisting in db.
 
 #### Modified Intermediate-Level Challenge:
 
-- Introduce an interface `Loggable`:
+- Introduce an interface `persistable`:
 
   ```php
-  interface Loggable {
-      public function logMessage(string $message): void;
+  interface Persistable {
+      public function saveNotification(mixed $data): void;
   }
   ```
-
-- Extend `NotificationSystem` by:
-  - Adding `PushNotificationSystem` that implements both `Loggable` and `Notifiable`.
-  - Adding logging functionality to track failed or successful notifications.
 
 This allows new features to be layered onto the system **without altering its fundamental architecture**.
 

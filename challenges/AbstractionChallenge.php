@@ -16,18 +16,18 @@ abstract class Device
         $this->name = $name;
     }
 
-    public function turnOn()
+    public function turnOn(): void
     {
         echo "Locating power button.\n Pressing down the button. \n device is turning on...\n";
         $this->setDeviceStatus();
     }
 
-    public function deviceStatus()
+    public function deviceStatus(): void
     {
         echo "$this->name is " . $this->getDeviceStatus() . "\n";
     }
 
-    public function turnOff()
+    public function turnOff(): void
     {
         echo "locating power button.\n Pressing down the button \n Device is turning off... \n";
         $this->setDeviceStatus();
@@ -44,12 +44,12 @@ abstract class Device
         $this->status === 'off' ? $this->status = 'on' : $this->status = 'off';
     }
 
-    abstract function operate();
+    abstract function operate(): void;
 }
 
 class Phone extends Device
 {
-    public function operate()
+    public function operate(): void
     {
         echo "phone is ringing\n";
     }
@@ -58,7 +58,7 @@ class Phone extends Device
 
 class Speaker extends Device
 {
-    public function operate()
+    public function operate(): void
     {
         echo "speaker is playing music.\n";
     }

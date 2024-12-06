@@ -108,6 +108,7 @@ class Speaker extends Device implements Upgradeable
 
 
 $androidPhone = new Phone('Android', 'Android Phone');
+$androidPhone = new BasicPhone('Android', 'Android Phone');
 $speaker = new Speaker('Bluetooth speaker');
 
 $androidPhone->getName();
@@ -117,6 +118,8 @@ $androidPhone->deviceStatus();
 $androidPhone->operate();
 $androidPhone->turnOff();
 $androidPhone->deviceStatus();
+
+
 
 
 // $speaker->deviceStatus();

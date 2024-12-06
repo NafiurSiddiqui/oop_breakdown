@@ -2,6 +2,8 @@
 
 Imagine you're building a Library System where you have different types of items (books, magazines, and e-books). Each type of item will share some common properties, but also have its own specific characteristics and behaviors.
 
+Also actually teaches you polymorphism in this challenge.
+
 ## Requirements
 
 ### Base Class: LibraryItem

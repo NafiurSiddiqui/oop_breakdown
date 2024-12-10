@@ -1,8 +1,7 @@
-# OOP in practice
+# OOP and SOLID design principals
 
-Hands on practical guide for OOP.
+Helps you to think in OOP and SOLID with hands-on code first challenges.
 
-**NOTE**
+## Steps
 
-- The abstract class and all other OOP concept are fully explained in the notion. This is a lab.
-- Abstract class is directly inside the `challenges` directory.
+Follow the directory numbering. Finish `OOP` first, then head on to `SOLID`.

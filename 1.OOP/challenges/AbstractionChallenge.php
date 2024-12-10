@@ -7,6 +7,8 @@ namespace Challenges\Abstraction;
 
 //EASY
 //one thing - protect the integrity of the encapsulation and NEVER directly modify the properties without getter/setter
+//With this practice we will also pracice OCP (Open Close Principal) from SOLID design patterns.
+//Don't bother about that now, just learn and have fun with the challenges first.
 
 abstract class Device
 {

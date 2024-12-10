@@ -57,7 +57,3 @@ Create at least three subclasses:
 - `Car` (handles passengers).
 - `Airplane` (handles cargo).
 - `Bicycle` (requires no fuel).
-
----
-
-Let me know when you're ready to compare your implementation!

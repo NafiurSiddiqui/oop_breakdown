@@ -156,10 +156,10 @@ class AmphibousVehicle extends Vehicle
 
     public string $mode = 'land';
 
-    // public function __construct()
-    // {
-    //     $this->mode = $this->modes[$this->modeCounter];
-    // }
+    public function __construct()
+    {
+        $this->mode = $this->modes[$this->modeCounter];
+    }
 
     public function move(): void
     {
@@ -202,24 +202,21 @@ class AmphibousVehicle extends Vehicle
 
         echo $this->mode;
     }
-
-    private function setMode(): void
-    {
-        $this->mode = next($this->modes);
-    }
 }
 
 
 $amph2 = new AmphibousVehicle('Xavier', 'warpsteer2', 6);
 
-$amph2->switchMode();
 $amph2->getMode();
 echo "\n";
 $amph2->switchMode();
 $amph2->getMode();
-echo "\n";
-$amph2->switchMode();
-$amph2->getMode();
-echo "\n";
-$amph2->switchMode();
-$amph2->getMode();
+// echo "\n";
+// $amph2->switchMode();
+// $amph2->getMode();
+// echo "\n";
+// $amph2->switchMode();
+// $amph2->getMode();
+// echo "\n";
+// $amph2->switchMode();
+// $amph2->getMode();

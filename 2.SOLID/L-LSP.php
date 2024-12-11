@@ -214,6 +214,4 @@ testAllVehicleMoves($vehicles);
 
 
 //conclusion - now read the L-LSP.readme, and you will understand the theoritical aspect better.
-
-//TODO
-//Create some challenges/quiz to test the students if they can detect when a LSP is violated and not.
+//NOW head to the L-LSP-QUIZES.md to test your understanding and you should be good to move on to the next level.

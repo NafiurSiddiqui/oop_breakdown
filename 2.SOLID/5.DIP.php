@@ -138,9 +138,9 @@ interface ChargableDevice
     public function getName(): string;
 }
 
-//DRY- Note how we have the same format of message in both Phoen and Laptop? Imagine we create more devices and in each devices we are copy pasting essentially the same format of message. Heance this SharedMessage abstract class is used.
+//DRY- Note how we have the same format of message in both Phone and Laptop? Imagine we create more devices and in each devices we are copy pasting essentially the same format of message. Heance this SharedMessage trait is creaetd and used for reusability
 
-abstract class SharedMessage
+trait SharedMessage
 {
 
     public function message(string $name): string
@@ -150,8 +150,11 @@ abstract class SharedMessage
 }
 
 
-class Phone extends SharedMessage implements ChargableDevice
+class Phone implements ChargableDevice
 {
+
+    use SharedMessage;
+
     public function __construct(protected string $name)
     {
         $this->name = $name;
@@ -167,8 +170,10 @@ class Phone extends SharedMessage implements ChargableDevice
         return $this->name;
     }
 }
-class Laptop extends SharedMessage implements ChargableDevice
+class Laptop  implements ChargableDevice
 {
+    use SharedMessage;
+
     public function __construct(
         protected string $name
     ) {
